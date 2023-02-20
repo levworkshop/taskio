@@ -9,8 +9,6 @@ export class AppComponent {
     title = 'task io';
     today = new Date();
 
-
-
     getImagePath(): string {
         return "https://cdn.pixabay.com/photo/2023/02/06/01/14/superb-fairywren-7770904__340.jpg";
     }
