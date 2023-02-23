@@ -6,7 +6,7 @@ interface Task {
     description?: string;
 }
 
-interface Project {
+export interface Project {
     title: string;
     description: string;
     image: string;
@@ -67,19 +67,6 @@ export class AppComponent {
 
     getImagePath(): string {
         return "https://cdn.pixabay.com/photo/2023/02/06/01/14/superb-fairywren-7770904__340.jpg";
-    }
-
-    projectStatusCss(project: Project): string {
-        switch (project.status) {
-            case 'PLANNED':
-                return 'bi-clipboard';
-            case 'IN PROGRESS':
-                return 'bi-clock-history';
-            case 'DONE':
-                return 'bi-check-circle';
-            default:
-                return '';
-        }
     }
 
     // getTaskById(id: number): string {
