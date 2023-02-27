@@ -24,6 +24,7 @@ export class AppComponent {
 
     sectionTitle1 = 'Today\'s Tasks';
     sectionTitle2 = 'My Projects';
+    developer = 'Yoyo technolegies';
 
     projects: Array<Project> = [
         {
