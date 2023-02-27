@@ -22,6 +22,9 @@ export class AppComponent {
     title = 'task io';
     today = new Date();
 
+    sectionTitle1 = 'Today\'s Tasks';
+    sectionTitle2 = 'My Projects';
+
     projects: Array<Project> = [
         {
             title: 'my first project',
