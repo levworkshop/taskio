@@ -8,7 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a routerLink="/home" class="nav-link active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/projects" class="nav-link active" aria-current="page">Projects</a>
                 </li>
             </ul>
             <!-- <form class="d-flex" role="search">
@@ -20,10 +23,10 @@
 </nav>
 
 <main class="p-4 main-bg">
-    <!-- <h2 class="text-center my-3">
-        Today's Tasks
-    </h2> -->
-    <app-section-title [text]="sectionTitle1"></app-section-title>
+
+    <router-outlet></router-outlet>
+
+    <!-- <app-section-title [text]="sectionTitle1"></app-section-title>
 
     <span [ngClass]="listStatusCss()">({{tasks.length}})</span>
     <br>
@@ -41,16 +44,13 @@
         </li>
     </ul>
 
-    <!-- <h2 class="text-center my-3">
-        My Projects
-    </h2> -->
     <app-section-title [text]="sectionTitle2"></app-section-title>
 
     <div class="row">
         <div *ngFor="let project of projects" class="col-4 d-flex">
             <app-project-card [projectItem]="project"></app-project-card>
         </div>
-    </div>
+    </div> -->
 
 </main>
 

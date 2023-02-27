@@ -7,6 +7,8 @@ import { ButtonComponent } from './button/button.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { SectionTitleComponent } from './section-title/section-title.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProjectPageComponent } from './project-page/project-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { FooterComponent } from './footer/footer.component';
     ButtonComponent,
     ProjectCardComponent,
     SectionTitleComponent,
-    FooterComponent
+    FooterComponent,
+    ProjectPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
