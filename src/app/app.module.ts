@@ -3,16 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
 import { ProjectsModule } from './projects/projects.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        FooterComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -20,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
         HomeModule,
         AboutModule,
         AuthModule,
+        SharedModule,
         AppRoutingModule
     ],
     providers: [],
