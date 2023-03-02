@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProjectsModule } from './projects/projects.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { AboutModule } from './about/about.module';
         ProjectsModule,
         HomeModule,
         AboutModule,
+        AuthModule,
         AppRoutingModule
     ],
     providers: [],
