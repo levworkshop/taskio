@@ -19,14 +19,15 @@
 
     <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
-        <input formControlName="name" type="text" id="name" class="form-control">
+        <input #nameFieldRef formControlName="name" type="text" id="name" class="form-control">
     </div>
 
     <app-field-error [formField]="getFieldControl('name')"></app-field-error>
 
     <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
-        <input formControlName="email" type="text" class="form-control" id="email" placeholder="name@email.com">
+        <input #emailFieldRef formControlName="email" type="text" class="form-control" id="email"
+               placeholder="name@email.com">
     </div>
 
     <app-field-error [formField]="getFieldControl('email')"></app-field-error>
