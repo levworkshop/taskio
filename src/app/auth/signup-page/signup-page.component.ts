@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoggerService } from 'src/app/core/logger.service';
 
 @Component({
     selector: 'app-signup-page',
@@ -12,6 +13,8 @@ export class SignupPageComponent implements AfterViewInit {
     // formValid(): boolean {
     //     return (this.nameField.length >= 2);
     // }
+
+    constructor(private logger: LoggerService) { }
 
     @ViewChild('nameFieldRef') nameField!: ElementRef;
 
@@ -28,7 +31,8 @@ export class SignupPageComponent implements AfterViewInit {
     })
 
     ngAfterViewInit(): void {
-        console.log('ngAfterViewInit');
+        this.logger.log('ngAfterViewInit');
+        // console.log('ngAfterViewInit');
         this.nameField.nativeElement.focus();
     }
 
