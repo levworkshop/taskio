@@ -14,7 +14,6 @@ export class SignupPageComponent implements AfterViewInit {
     // }
 
     @ViewChild('nameFieldRef') nameField!: ElementRef;
-    // @ViewChild('emailFieldRef') emailField!: ElementRef;
 
     signupForm = new FormGroup({
         name: new FormControl('', {

@@ -26,8 +26,7 @@
 
     <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
-        <input #emailFieldRef formControlName="email" type="text" class="form-control" id="email"
-               placeholder="name@email.com">
+        <input formControlName="email" type="text" class="form-control" id="email" placeholder="name@email.com">
     </div>
 
     <app-field-error [formField]="getFieldControl('email')"></app-field-error>
