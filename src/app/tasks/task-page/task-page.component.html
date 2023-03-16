@@ -18,11 +18,11 @@
     </div>
 </form>
 
-<p>Total: 3</p>
+<p>Total: {{tasks.length}}</p>
 
 <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        task 1
+    <li *ngFor="let task of tasks" class="list-group-item d-flex justify-content-between align-items-center">
+        {{task.title}} - {{task.description}}
         <div>
             <button class="btn btn-light">
                 <i class="bi bi-pencil text-primary"></i>
