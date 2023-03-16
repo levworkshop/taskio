@@ -9,6 +9,7 @@ import { HomeModule } from './home/home.module';
 import { ProjectsModule } from './projects/projects.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { CoreModule } from './core/core.module';
         AuthModule,
         SharedModule,
         CoreModule,
+        TasksModule,
         AppRoutingModule,
     ],
     providers: [],
