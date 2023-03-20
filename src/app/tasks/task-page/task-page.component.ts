@@ -55,4 +55,17 @@ export class TaskPageComponent implements OnInit {
             error: (err) => console.log(err)
         })
     }
+
+    onDelete(task: Task) {
+        if (!task._id) {
+            return;
+        }
+
+        this.api.deleteTask(task._id).subscribe({
+            next: (data: Task) => {
+                this.getTasks();
+            },
+            error: (err) => console.log(err)
+        })
+    }
 }
