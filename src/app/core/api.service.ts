@@ -23,6 +23,10 @@ export class ApiService {
         // return this.token
     }
 
+    deleteToken() {
+        localStorage.removeItem(this.TOKEN_KEY);
+    }
+
     constructor(private http: HttpClient) { }
 
     getUserPosts() {

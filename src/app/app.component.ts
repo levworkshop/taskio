@@ -1,4 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { ApiService } from './core/api.service';
 import { SessionService } from './core/session.service';
 
 export interface Task {
@@ -31,10 +33,19 @@ export interface User {
 export class AppComponent implements AfterViewInit {
     developer = 'Yoyo technolegies';
 
-    constructor(private session: SessionService) { }
+    constructor(
+        private session: SessionService,
+        private api: ApiService,
+        private router: Router
+    ) { }
 
     ngAfterViewInit(): void {
         this.session.redirectToHome();
+    }
+
+    logout() {
+        this.api.deleteToken();
+        this.router.navigate(['login']);
     }
 
 
