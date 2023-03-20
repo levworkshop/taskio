@@ -10,6 +10,19 @@ export class ApiService {
 
     serverUrl = 'http://localhost:3000/'
 
+    // private token = ''
+    TOKEN_KEY = 'token'
+
+    setToken(value: string) {
+        localStorage.setItem(this.TOKEN_KEY, value);
+        // this.token = value;
+    }
+
+    getToken(): string {
+        return localStorage.getItem(this.TOKEN_KEY) || '';
+        // return this.token
+    }
+
     constructor(private http: HttpClient) { }
 
     getUserPosts() {
@@ -17,7 +30,14 @@ export class ApiService {
     }
 
     getTasks(): Observable<Array<Task>> {
-        return this.http.get<Array<Task>>(`${this.serverUrl}tasks`)
+        return this.http.get<Array<Task>>(
+            `${this.serverUrl}tasks`,
+            {
+                headers: {
+                    'x-auth-token': this.getToken()
+                }
+            }
+        )
     }
 
     addTask(task: Task): Observable<Task> {
@@ -42,14 +62,24 @@ export class ApiService {
         return this.http.post<DynamicType>(
             `${this.serverUrl}${endpoint}`,
             data,
-            { headers: { 'Content-Type': 'application/json' } }
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': this.getToken()
+                }
+            }
         )
     }
 
     deleteTask(id: string): Observable<Task> {
         return this.http.delete<Task>(
             `${this.serverUrl}tasks/${id}`,
-            { headers: { 'Content-Type': 'application/json' } }
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': this.getToken()
+                }
+            }
         )
     }
 
@@ -57,11 +87,20 @@ export class ApiService {
         return this.http.put<Task>(
             `${this.serverUrl}tasks/${id}`,
             task,
-            { headers: { 'Content-Type': 'application/json' } }
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': this.getToken()
+                }
+            }
         )
     }
 
     signup(user: User): Observable<User> {
         return this.POST<User>('users/signup', user);
+    }
+
+    login(user: User): Observable<User> {
+        return this.POST<User>('users/login', user);
     }
 }
