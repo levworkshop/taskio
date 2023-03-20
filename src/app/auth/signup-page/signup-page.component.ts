@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/core/api.service';
 import { LoggerService } from 'src/app/core/logger.service';
 
 @Component({
@@ -14,7 +16,11 @@ export class SignupPageComponent implements AfterViewInit {
     //     return (this.nameField.length >= 2);
     // }
 
-    constructor(private logger: LoggerService) { }
+    constructor(
+        private logger: LoggerService,
+        private api: ApiService,
+        private router: Router
+    ) { }
 
     @ViewChild('nameFieldRef') nameField!: ElementRef;
 
@@ -46,6 +52,13 @@ export class SignupPageComponent implements AfterViewInit {
         }
 
         console.log(this.signupForm.value);
+
+        this.api.signup(this.signupForm.value).subscribe({
+            next: (data) => {
+                this.router.navigate(['login']);
+            },
+            error: (err) => console.log(err)
+        })
     }
 
 

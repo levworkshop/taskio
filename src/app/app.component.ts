@@ -15,6 +15,13 @@ export interface Project {
     status: 'PLANNED' | 'IN PROGRESS' | 'DONE'
 }
 
+export interface User {
+    _id?: string | null;
+    name?: string | null;
+    email?: string | null;
+    password?: string | null;
+}
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',

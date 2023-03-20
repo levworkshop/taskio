@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Project, Task } from '../app.component';
+import { Project, Task, User } from '../app.component';
 
 @Injectable({
     providedIn: 'root'
@@ -38,8 +38,8 @@ export class ApiService {
         return this.POST<Project>('projects', project);
     }
 
-    POST<T>(endpoint: string, data: T): Observable<T> {
-        return this.http.post<T>(
+    POST<DynamicType>(endpoint: string, data: DynamicType): Observable<DynamicType> {
+        return this.http.post<DynamicType>(
             `${this.serverUrl}${endpoint}`,
             data,
             { headers: { 'Content-Type': 'application/json' } }
@@ -59,5 +59,9 @@ export class ApiService {
             task,
             { headers: { 'Content-Type': 'application/json' } }
         )
+    }
+
+    signup(user: User): Observable<User> {
+        return this.POST<User>('users/signup', user);
     }
 }
