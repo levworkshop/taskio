@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/app.component';
 import { ApiService } from 'src/app/core/api.service';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
     selector: 'app-login-page',
@@ -21,7 +22,8 @@ export class LoginPageComponent {
 
     constructor(
         private api: ApiService,
-        private router: Router
+        private router: Router,
+        private auth: AuthService
     ) {
 
     }
@@ -31,13 +33,13 @@ export class LoginPageComponent {
             return;
         }
 
-        console.log(this.loginForm.value);
+        // console.log(this.loginForm.value);
 
         this.api.login(this.loginForm.value).subscribe({
             next: (data: User) => {
                 // console.log(data);
                 if (data.token) this.api.setToken(data.token)
-                this.router.navigate(['home']);
+                this.router.navigate([this.auth.redirectUrl]);
             },
             error: (err) => console.log(err)
         })
