@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Project, Task, User } from '../app.component';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ApiService {
 
-    serverUrl = 'http://localhost:3000/'
+    serverUrl = environment.serverUrl; //'http://localhost:3000/'
 
     // private token = ''
     private TOKEN_KEY = 'token'
