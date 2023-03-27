@@ -11,12 +11,14 @@ export interface Task {
     description?: string | null;
 }
 
+export type ProjectStatus = 'PLANNED' | 'IN PROGRESS' | 'DONE';
+
 export interface Project {
     _id?: string | null;
-    title: string | null;
-    description: string | null;
-    image: string | null;
-    status: 'PLANNED' | 'IN PROGRESS' | 'DONE'
+    title?: string | null;
+    description?: string | null;
+    image?: string | null;
+    status?: ProjectStatus | null;
 }
 
 export interface User {

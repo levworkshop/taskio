@@ -2,14 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
         ProjectCardComponent,
         ProjectPageComponent,
+        AddProjectComponent,
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
     ],
     exports: [
         ProjectCardComponent,

@@ -48,11 +48,6 @@ export class ApiService {
     }
 
     addProject(project: Project): Observable<Project> {
-        // return this.http.post<Project>(
-        //     `${this.serverUrl}projects`,
-        //     project,
-        //     { headers: { 'Content-Type': 'application/json' } }
-        // )
         return this.POST<Project>('projects', project);
     }
 
