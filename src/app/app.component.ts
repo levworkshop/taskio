@@ -12,9 +12,10 @@ export interface Task {
 }
 
 export interface Project {
-    title: string;
-    description: string;
-    image: string;
+    _id?: string | null;
+    title: string | null;
+    description: string | null;
+    image: string | null;
     status: 'PLANNED' | 'IN PROGRESS' | 'DONE'
 }
 
