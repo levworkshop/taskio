@@ -45,7 +45,9 @@ export class AddProjectComponent {
         this.api.addProject(this.addProjectForm.value).subscribe({
             next: (data: Project) => {
                 this.router.navigate(['projects']);
-            }
+            },
+            error: (err) => console.log(err)
+
         })
     }
 }

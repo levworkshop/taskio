@@ -4,6 +4,7 @@ import { ProjectCardComponent } from './project-card/project-card.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ],
     imports: [
         CommonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterModule
     ],
     exports: [
         ProjectCardComponent,
