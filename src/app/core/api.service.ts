@@ -35,14 +35,7 @@ export class ApiService {
     }
 
     getTasks(): Observable<Array<Task>> {
-        return this.http.get<Array<Task>>(
-            `${this.serverUrl}tasks`,
-            {
-                headers: {
-                    'x-auth-token': this.getToken()
-                }
-            }
-        )
+        return this.GET<Task>(`tasks`);
     }
 
     addTask(task: Task): Observable<Task> {
@@ -61,6 +54,21 @@ export class ApiService {
         //     { headers: { 'Content-Type': 'application/json' } }
         // )
         return this.POST<Project>('projects', project);
+    }
+
+    getProjects(): Observable<Array<Project>> {
+        return this.GET<Project>(`projects`);
+    }
+
+    GET<DynamicType>(endpoint: string): Observable<Array<DynamicType>> {
+        return this.http.get<Array<DynamicType>>(
+            `${this.serverUrl}${endpoint}`,
+            {
+                headers: {
+                    'x-auth-token': this.getToken()
+                }
+            }
+        )
     }
 
     POST<DynamicType>(endpoint: string, data: DynamicType): Observable<DynamicType> {
